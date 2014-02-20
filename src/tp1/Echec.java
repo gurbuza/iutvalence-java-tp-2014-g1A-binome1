@@ -1,3 +1,4 @@
+/* TODO Javadoc. */
 package tp1;
 
 public class Echec
