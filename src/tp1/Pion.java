@@ -1,7 +1,9 @@
+/* TODO Javadoc. */
 package tp1;
 
 public class Pion
 {
+
     public String couleur;
 
     public String element;
