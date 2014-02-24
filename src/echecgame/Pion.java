@@ -15,6 +15,11 @@ public class Pion
     {
         return couleur;
     }
+    
+    public void avancerPion()
+    {
+        /*A completer*/
+    }
 
     
 }
