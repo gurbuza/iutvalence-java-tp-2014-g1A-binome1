@@ -3,10 +3,9 @@ package tp1;
 
 public class Jouer
 {
-
     public static void main(String[] args)
     {
-        /* TODO Vide ? */
+            Echec partie = new Echec();
+            partie.jouer();
     }
-
 }
