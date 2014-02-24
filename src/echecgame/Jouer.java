@@ -1,5 +1,5 @@
 /* TODO Javadoc. */
-package tp1;
+package echecgame;
 
 public class Jouer
 {
