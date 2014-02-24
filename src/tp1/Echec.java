@@ -3,11 +3,17 @@ package tp1;
 
 public class Echec
 {
-    /* TODO Qu'est-ce ? */
-    public int x;
-    /* TODO Qu'est-ce ? */
-    public int y;
-    /* TODO Qu'est-ce ? */
-    public int Case[][] = {{1, 2, 3, 4, 5, 6, 7, 8}, {1, 2, 3, 4, 5, 6, 7, 8}};
+    private Case Echiquier[][];
+    private Joueur joueur1;
+    private Joueur joueur2;
+    private boolean joueurCourant;
+    
+    public Echec() {
+        /* Initialiser tout */
+    }
+    
+    public void jouer() {
+        /* Algo d'un tour. */
+    }
 
 }
