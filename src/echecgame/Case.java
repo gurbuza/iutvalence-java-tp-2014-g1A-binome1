@@ -4,19 +4,14 @@ package echecgame;
 public class Case
 {
     
-    public boolean presencePion;
+    public Pion pion;
 
     private final boolean couleur;
 
     public Case(boolean couleur)
     {
-        this.presencePion = false;
+        this.pion = null;
         this.couleur = couleur;
-    }
-
-    public boolean presenceDuPion()
-    {
-        return presencePion;
     }
 
     public boolean getCouleur()
