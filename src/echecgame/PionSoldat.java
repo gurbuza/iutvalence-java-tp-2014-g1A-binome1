@@ -6,6 +6,11 @@ public class PionSoldat extends Pion
     {
         super(couleur);
     }
+    
+    public void avancerPionSoldat()
+    {
+        /* if (this.pion = null) */
+    }
 
 
 }
