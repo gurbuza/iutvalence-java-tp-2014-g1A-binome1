@@ -18,4 +18,9 @@ public class Case
     {
         return presencePion;
     }
+
+    public boolean getCouleur()
+    {
+        return couleur;
+    }
 }

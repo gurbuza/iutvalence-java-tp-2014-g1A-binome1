@@ -11,9 +11,9 @@ public class Pion
     }
 
 
-    public void avancerPion()
+    public boolean getCouleur()
     {
-        
+        return couleur;
     }
 
     
