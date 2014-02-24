@@ -1,8 +1,21 @@
 /* TODO Javadoc. */
 package tp1;
 
-/* TODO Quelle différence avec l'élément dans Echec ? */
 public class Case
 {
-    int Case[][] = {{1,2,3,4,5,6,7,8},{1,2,3,4,5,6,7,8}};
+    
+    public boolean presencePion;
+
+    private final boolean couleur;
+
+    public Case(boolean couleur)
+    {
+        this.presencePion = false;
+        this.couleur = couleur;
+    }
+
+    public boolean presenceDuPion()
+    {
+        return presencePion;
+    }
 }
