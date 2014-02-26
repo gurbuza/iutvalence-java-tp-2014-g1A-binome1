@@ -1,3 +1,5 @@
+/* TODO Javadoc. */
+/* TODO Nom de package. */
 package echecgame;
 
 public class PionSoldat extends Pion
