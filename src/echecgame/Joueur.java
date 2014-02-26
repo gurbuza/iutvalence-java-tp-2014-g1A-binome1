@@ -1,7 +1,10 @@
+/* TODO Javadoc. */
+/* TODO Nom de package. */
 package echecgame;
 
 public class Joueur
 {
+    /* TODO Pourquoi retenir la couleur ? */
     private final boolean couleur;
     private final String nom;
     
@@ -11,6 +14,7 @@ public class Joueur
         this.nom = nom;
     }
 
+    /* TODO Franglais ! */
     public boolean getCouleur()
     {
         return couleur;
