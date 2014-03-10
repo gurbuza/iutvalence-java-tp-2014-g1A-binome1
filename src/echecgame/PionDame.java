@@ -2,16 +2,16 @@
 /* TODO Nom de package. */
 package echecgame;
 
-public class PionReine extends Pion
+public class PionDame extends Pion
 {
 
-    public PionReine(boolean couleur)
+    public PionDame(boolean couleur)
     {
         super(couleur);
     }
 
     @Override
-    public void avancer()
+    public void deplacementEstValidé()
     {
         // TODO Auto-generated method stub
         

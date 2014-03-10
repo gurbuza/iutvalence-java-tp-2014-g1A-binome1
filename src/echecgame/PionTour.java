@@ -11,7 +11,7 @@ public class PionTour extends Pion
     }
 
     @Override
-    public void avancer()
+    public void deplacementEstValidé()
     {
         // TODO Auto-generated method stub
         

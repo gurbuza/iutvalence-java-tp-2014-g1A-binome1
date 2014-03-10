@@ -10,7 +10,7 @@ public class PionSoldat extends Pion
     }
     
     @Override
-    public void avancer()
+    public void deplacementEstValidé()
     {
         /* if (this.pion = null) */
     }
