@@ -10,4 +10,11 @@ public class PionCavalier extends Pion
         super(couleur);
     }
 
+    @Override
+    public void avancer()
+    {
+        // TODO Auto-generated method stub
+        
+    }
+
 }

@@ -9,7 +9,8 @@ public class PionSoldat extends Pion
         super(couleur);
     }
     
-    public void avancerPionSoldat()
+    @Override
+    public void avancer()
     {
         /* if (this.pion = null) */
     }

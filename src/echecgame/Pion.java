@@ -1,9 +1,8 @@
 /* TODO Javadoc. */
-/* TODO Nom de package. */
 package echecgame;
 
-/* TODO Allez vous manipuler des Pion ? Ou allez vous manipuler seulement les sous-classes ? */
-public class Pion
+
+public abstract class Pion
 {
     private final boolean couleur;
     
@@ -12,14 +11,11 @@ public class Pion
         this.couleur = couleur;
     }
 
-    public boolean getCouleur()
+    public boolean obtenirCouleur()
     {
         return couleur;
     }
 
-    /* TODO Est-ce une méthode pertinente ? */
-    public void avancerPion()
-    {
-        /* Votre commentaire : A completer. Le mien :   TODO Est-ce réellement nécessaire  ? */
-    }
+    /* TODO Un peu pauvre comme API. */
+    public abstract void deplacementEstValidé();
 }

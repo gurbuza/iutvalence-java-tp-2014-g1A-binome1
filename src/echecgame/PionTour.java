@@ -10,4 +10,11 @@ public class PionTour extends Pion
         super(couleur);
     }
 
+    @Override
+    public void avancer()
+    {
+        // TODO Auto-generated method stub
+        
+    }
+
 }
