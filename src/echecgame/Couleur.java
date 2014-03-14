@@ -1,11 +1,10 @@
 /* TODO Javadoc. */
-/* TODO Nom de package. */
-
+/* TODO Nom de package incorrect. À discuter en TP. */
 package echecgame;
 
 /* TODO Pourquoi un "boolean" ? Pourquoi pas un enum ? */
 public class Couleur
 {
-    public final static boolean BLANC = true;
-    public final static boolean NOIR = false;
+    public static final boolean BLANC = true;
+    public static final boolean NOIR  = false;
 }
