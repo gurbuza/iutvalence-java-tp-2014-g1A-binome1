@@ -1,5 +1,5 @@
 /* TODO Javadoc. */
-/* TODO Nom de package. */
+/* TODO Nom de package incorrect. À discuter en TP. */
 package echecgame;
 
 public class Joueur
