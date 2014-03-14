@@ -15,5 +15,4 @@ public class PionSoldat extends Pion
         /* if (this.pion = null) */
     }
 
-
 }
