@@ -4,15 +4,21 @@ package echecgame;
 
 public class PionSoldat extends Pion
 {
-    public PionSoldat(boolean couleur)
+    public PionSoldat(Couleur couleur)
     {
         super(couleur);
     }
-    
+
     @Override
-    public void deplacementEstValidé()
+    public boolean deplacementEstValide(Pion[][] echiquier, int ligneDepart,
+            int colonneDepart, int ligneArrivee, int colonneArrivee)
     {
-        /* if (this.pion = null) */
+        return true;
     }
+
+        /*
+         * if (this.obtenirCouleur() == BLANC) if (this.ligneDepart == 6 )
+         */
+
 
 }

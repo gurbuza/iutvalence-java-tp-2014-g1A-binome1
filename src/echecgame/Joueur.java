@@ -4,16 +4,16 @@ package echecgame;
 
 public class Joueur
 {
-    private final boolean couleur;
+    private final Couleur couleur;
     private final String nom;
     
-    public Joueur(boolean couleur, String nom)
+    public Joueur(Couleur couleur, String nom)
     {
         this.couleur = couleur;
         this.nom = nom;
     }
 
-    public boolean obtenirCouleur()
+    public Couleur obtenirCouleur()
     {
         return couleur;
     }

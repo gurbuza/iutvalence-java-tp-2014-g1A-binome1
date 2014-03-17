@@ -5,16 +5,17 @@ package echecgame;
 public class PionDame extends Pion
 {
 
-    public PionDame(boolean couleur)
+    public PionDame(Couleur couleur)
     {
         super(couleur);
     }
 
     @Override
-    public void deplacementEstValidé()
+    public boolean deplacementEstValide(Pion[][] echiquier, int ligneDepart,
+            int colonneDepart, int ligneArrivee, int colonneArrivee)
     {
-        // TODO Auto-generated method stub
-        
+        return true;
     }
+
 
 }

@@ -4,19 +4,18 @@ package echecgame;
 
 public abstract class Pion
 {
-    private final boolean couleur;
-    /* TODO Pourquoi faire un constructeur public dans une classe "abstract" ? */
-    public Pion(boolean couleur)
+    protected final Couleur couleur;
+    
+    public Pion(Couleur couleur)
     {
         this.couleur = couleur;
     }
 
-    public boolean obtenirCouleur()
+    public Couleur obtenirCouleur()
     {
         return couleur;
     }
 
     /* TODO Il doit vous manquer des paramètres ? */
-    /* TODO Evitez les noms de méthodes à accents... */
-    public abstract void deplacementEstValidé();
+    public abstract boolean deplacementEstValide(Pion[][] echiquier, int ligneDepart,int colonneDepart, int ligneArrivee, int colonneArivee );
 }
