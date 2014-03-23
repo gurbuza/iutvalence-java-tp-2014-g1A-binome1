@@ -1,44 +1,56 @@
-/* TODO Javadoc. */
-/* TODO Nom de package incorrect. À discuter en TP. */
+/* TODO Nom de package incorrect. */
 package echecgame;
-import java.util.Scanner; 
 
+import java.util.Scanner;
+
+/**
+ * TODO.
+ *
+ * @author TODO
+ * @version TODO
+ */
 public class Echec
 {
+    /** TODO. */
     private final Pion[][] echiquier;
 
+    /** TODO. */
     private final Joueur joueur1;
 
+    /** TODO. */
     private final Joueur joueur2;
 
+    /** TODO. */
     private boolean joueurCourant;
 
+    /** TODO. */
     public Echec() {
        echiquier = new Pion[8][8];
        premierPlacement();
+       /* TODO Passez en paramètre le nom des joueurs. */
        this.joueur1 = new Joueur(Couleur.BLANC, "Tom");
        this.joueur2 = new Joueur(Couleur.NOIR, "Jerry");
        this.joueurCourant = true;
     }
-       /* C'est très inutile, n'en prenez pas en compte s'il vous plaît.
-        * 
-        */
 
-
+    /** TODO. */
     public void jouer()
     {
         afficherEchiquier();
+        /* TODO Vous n'avez pas besoin de deux lecteurs sur l'entrée standard ! */
         Scanner selectionPion = new Scanner(System.in);
         Scanner positionArrivee = new Scanner(System.in);
-        
+
+        /* TODO Vous faites deux demandes pour 4 coordonnées ? */
         System.out.println("Veuillez selectionner votre pion :");
         int numeroligne = selectionPion.nextInt();
         //System.out.println("Vous avez selectionner le pion en : " + str);
-        
+
         System.out.println("Veuillez saisir la position d'arrivée :");
         String str1 = positionArrivee.nextLine();
         //System.out.println("Vous saisi comme position d'arrivée : " + str1);
-        
+
+        /* TODO Votre méthode ne retourne rien (void) ! */
         if ((numeroligne<0) || (numerocolonne<0) || (ligneDepart>7) || (colonneDepart>7) || (ligneArrivee<0) || (colonneArrivee<0) || (ligneArrivee>7) || (colonneArrivee>7))
             return false;
         
@@ -49,10 +61,12 @@ public class Echec
          *  - Si valide, jouer le coup. Sinon retour étape 2.
          *  - Changer le joueur courant.
          */
-        
-        
+
+
     }
-    
+
+    /* TODO À quoi ça sert ? */
+    /** TODO. */
     private void afficherEchiquier()
     {
         String echiquierAsciiArt = "";
@@ -63,12 +77,13 @@ public class Echec
                 echiquierAsciiArt += "■ ";
             }
             echiquierAsciiArt +="\n";
-            
+
         }
-        
+
         System.out.println(echiquierAsciiArt);
     }
 
+    /** TODO. */
     private void premierPlacement()
     {
         /* Placement des pions. */
@@ -94,5 +109,5 @@ public class Echec
             echiquier[6][colonne] = new PionSoldat(Couleur.NOIR);
     }
 
-        
+
 }

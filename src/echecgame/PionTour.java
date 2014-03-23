@@ -1,10 +1,14 @@
-/* TODO Javadoc. */
 /* TODO Nom de package. */
 package echecgame;
 
+/**
+ * TODO.
+ *
+ * @author TODO
+ * @version TODO
+ */
 public class PionTour extends Pion
 {
-
     public PionTour(Couleur couleur)
     {
         super(couleur);
@@ -16,6 +20,4 @@ public class PionTour extends Pion
     {
         return true;
     }
-
-
 }

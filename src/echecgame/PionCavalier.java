@@ -1,10 +1,14 @@
-/* TODO Javadoc. */
 /* TODO Nom de package. */
 package echecgame;
 
+/**
+ * TODO.
+ *
+ * @author TODO
+ * @version TODO
+ */
 public class PionCavalier extends Pion
 {
-
     public PionCavalier(Couleur couleur)
     {
         super(couleur);

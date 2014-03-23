@@ -1,7 +1,12 @@
-/* TODO Javadoc. */
 /* TODO Nom de package. */
 package echecgame;
 
+/**
+ * TODO.
+ *
+ * @author TODO
+ * @version TODO
+ */
 public class PionSoldat extends Pion
 {
     public PionSoldat(Couleur couleur)
@@ -15,10 +20,4 @@ public class PionSoldat extends Pion
     {
         return true;
     }
-
-        /*
-         * if (this.obtenirCouleur() == BLANC) if (this.ligneDepart == 6 )
-         */
-
-
 }
