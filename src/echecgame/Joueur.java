@@ -24,8 +24,7 @@ public class Joueur
         return couleur;
     }
 
-    /* TODO Evitez le franglais ! */
-    public String getNom() {
+    public String obtenirNom() {
         return nom;
     }
     
