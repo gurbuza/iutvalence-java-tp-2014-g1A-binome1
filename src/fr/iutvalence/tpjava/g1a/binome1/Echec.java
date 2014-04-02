@@ -1,13 +1,13 @@
-/* TODO Nom de package incorrect. */
+
 package fr.iutvalence.tpjava.g1a.binome1;
 
 import java.util.Scanner;
 
 /**
- * TODO.
- *
- * @author TODO
- * @version TODO
+ * Classe echec
+ * 
+ * @author Hoang Thai Binh / Gurbuz Adem
+ * @version v0.5
  */
 public class Echec
 {
@@ -21,16 +21,16 @@ public class Echec
     private final Joueur joueur2;
 
     /** TODO. */
-    private boolean joueurCourant;
+    private Joueur joueurCourant;
 
     /** TODO. */
-    public Echec() {
-       echiquier = new Pion[8][8];
-       premierPlacement();
-       /* TODO Passez en paramètre le nom des joueurs. */
-       this.joueur1 = new Joueur(Couleur.BLANC, "Tom");
-       this.joueur2 = new Joueur(Couleur.NOIR, "Jerry");
-       this.joueurCourant = true;
+    public Echec()
+    {
+        echiquier = new Pion[8][8];
+        /* TODO Passez en paramètre le nom des joueurs. */
+        this.joueur1 = new Joueur(Couleur.BLANC, "Tom");
+        this.joueur2 = new Joueur(Couleur.NOIR, "Jerry");
+        this.joueurCourant = joueur1;
     }
 
     /** TODO. */
@@ -39,23 +39,25 @@ public class Echec
         this.premierPlacement();
         this.afficherEchiquier();
         
-        Deplacement deplacement = this.obtenirDeplacementValide();
-             
-        /* Algo d'un tour :
-         *  - Afficher l'échiquier.
-         *  - Demander le déplacement à effectuer.
-         *  - Valider le coup (grille + pion).
-         *  - Si valide, jouer le coup. Sinon retour étape 2.
-         *  - Changer le joueur courant.
+        
+        while(true)
+        {
+            Deplacement deplacement = this.obtenirDeplacementValide();
+            Mvt(deplacement,echiquier);
+        }
+        
+
+        /*
+         * Algo d'un tour : 
+         * - Afficher l'échiquier. 
+         * - Demander le déplacement à effectuer. 
+         * - Valider le coup (grille + pion). 
+         * - Si valide, jouer le coup. Sinon retour étape 2. 
+         * - Changer le joueur courant.
          */
-
-
     }
 
-
-
-
-        public Deplacement obtenirDeplacement()
+    public Deplacement obtenirDeplacement()
     {
         Deplacement deplacement;
         /* TODO Vous n'avez pas besoin de deux lecteurs sur l'entrée standard ! */
@@ -66,59 +68,88 @@ public class Echec
         System.out.println("Veuillez selectionner votre pion :");
         int numeroligne = selectionPion.nextInt();
         int numerocolonne = selectionPion.nextInt();
-        
 
         System.out.println("Veuillez saisir la position d'arrivée :");
         int numerolignearrivee = selectionPion.nextInt();
         int numerocolonnearrivee = selectionPion.nextInt();
-        
-        deplacement = new Deplacement(numeroligne,numerocolonne,numerolignearrivee,numerocolonnearrivee);
+
+        deplacement = new Deplacement(numeroligne, numerocolonne,
+                numerolignearrivee, numerocolonnearrivee, echiquier);
         return deplacement;
-        
-    }
-    
-    public Deplacement obtenirDeplacementValide()
-    {
-       Deplacement deplacement;
-       while (true)
-       {
-           deplacement = obtenirDeplacement();
-           if (this.estDeplacementValide(deplacement))
-               {
-                   System.out.println("yolo !");
-                   break;
-               }
-           System.out.println("Veuillez ressayer SVP !");
-       }
-       return deplacement;
-           
+
     }
 
+    public Deplacement obtenirDeplacementValide() 
+    {
+        Deplacement deplacement;
+        while (true)
+        {
+            deplacement = obtenirDeplacement();
+            if (this.estDeplacementValide(deplacement))
+            {
+                int ligneDepart = deplacement.obtenirDepart().ligne();
+                int colonneDepart = deplacement.obtenirDepart().colonne();
+                if (this.joueurCourant.obtenirCouleur()==this.echiquier[ligneDepart][colonneDepart].obtenirCouleur())
+                    {
+                        System.out.println("yolo !");
+                        break;
+                    }
+            }
+            System.out.println("Veuillez ressayer SVP !");
+        }
+        return deplacement;
+
+    }
 
     public boolean estDeplacementValide(Deplacement deplacement)
     {
-        if ((deplacement.positionArrive.obtenirNumeroLigne()<0 )|| (deplacement.positionArrive.obtenirNumeroColonne()<0) || (deplacement.positionArrive.obtenirNumeroLigne()<7) || (deplacement.positionArrive.obtenirNumeroColonne()>7) || (deplacement.positionDepart.obtenirNumeroLigne()<0) || (deplacement.positionDepart.obtenirNumeroColonne()<0) || (deplacement.positionDepart.obtenirNumeroLigne()>7) || (deplacement.positionDepart.obtenirNumeroColonne()>7))
-                return false;
-        else if (echiquier[deplacement.positionDepart.obtenirNumeroLigne()][deplacement.positionDepart.obtenirNumeroColonne()]==null)
-                return false;
-        return true;
+     
+        Pion depart = echiquier[deplacement.depart.ligne()][deplacement.depart.colonne()];
+        Pion arrivee = echiquier[deplacement.arrivee.ligne()][deplacement.arrivee.colonne()];
+        
+        if (depart == null)
+            return false;
+        
+        if (arrivee != null && depart.obtenirCouleur() == arrivee.obtenirCouleur())
+            return false;
+        
+        return depart.deplacementEstValide(deplacement);
+
+    }
+    
+    public void Mvt(Deplacement deplacement, Pion[][] echiquier)
+    {
+        int ligneDepart = deplacement.obtenirDepart().ligne();
+        int colonneDepart = deplacement.obtenirDepart().colonne();
+        int ligneArrivee = deplacement.obtenirArrivee().ligne();
+        int colonneArrivee = deplacement.obtenirArrivee().colonne();
+        echiquier[ligneArrivee][colonneArrivee]=echiquier[ligneDepart][colonneDepart];
+        echiquier[ligneDepart][colonneDepart]=null;
+        afficherEchiquier();
+        if (this.joueurCourant==joueur1)
+            this.joueurCourant=joueur2;
+        else
+            this.joueurCourant=joueur1;
     }
 
     /* TODO À quoi ça sert ? */
     /** TODO. */
     private void afficherEchiquier()
     {
-        String echiquierConsole = "";
-        for (int ligne=0;ligne < 8; ligne++)
+        String echiquierConsole = "    ";
+        for (int ligne = 0; ligne < 8; ligne++) {
+            echiquierConsole += String.valueOf(ligne);
+            echiquierConsole += ' ';
+        }
+        echiquierConsole += '\n';
+        for (int ligne = 0; ligne < 8; ligne++)
         {
-            for(int colonne=0;colonne < 8; colonne++)
+            echiquierConsole += ligne + " | ";
+            for (int colonne = 0; colonne < 8; colonne++)
             {
-                if ((ligne==0)&&(colonne==0))
-                    echiquierConsole += "T ";
-                else 
-                    echiquierConsole += "V ";
+               echiquierConsole += (echiquier[ligne][colonne] == null) ? ". " : echiquier[ligne][colonne].toString();
             }
-            echiquierConsole +="\n";
+            echiquierConsole += "|\n";
 
         }
 
@@ -138,7 +169,7 @@ public class Echec
         echiquier[0][6] = new PionCavalier(Couleur.BLANC);
         echiquier[0][7] = new PionTour(Couleur.BLANC);
         for (int colonne = 0; colonne < 8; colonne++)
-            echiquier[1][colonne] = new PionSoldat(Couleur.NOIR);
+            echiquier[1][colonne] = new PionSoldat(Couleur.BLANC);
         echiquier[7][0] = new PionTour(Couleur.NOIR);
         echiquier[7][1] = new PionCavalier(Couleur.NOIR);
         echiquier[7][2] = new PionFou(Couleur.NOIR);
@@ -150,6 +181,5 @@ public class Echec
         for (int colonne = 0; colonne < 8; colonne++)
             echiquier[6][colonne] = new PionSoldat(Couleur.NOIR);
     }
-
 
 }

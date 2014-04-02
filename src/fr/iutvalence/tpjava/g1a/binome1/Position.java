@@ -11,12 +11,12 @@ public class Position
         this.numeroLigne=numligne;
     }
 
-    public int obtenirNumeroLigne()
+    public int ligne()
     {
         return this.numeroLigne;
     }
 
-    public int obtenirNumeroColonne()
+    public int colonne()
     {
         return this.numeroColonne;
     }

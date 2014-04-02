@@ -1,19 +1,28 @@
 package fr.iutvalence.tpjava.g1a.binome1;
 
-import java.util.Scanner;
-
 public class Deplacement
 {
-    public Position positionDepart;
-    public Position positionArrive;
+    
+
+    public Position depart;
+    public Position arrivee;
     
     public Pion[][] echiquier;
     
-    public Deplacement(int numerolignedepart, int numerocolonnedepart, int numerolignearrivee, int numerocolonnearrivee)
+    public Deplacement(int numerolignedepart, int numerocolonnedepart, int numerolignearrivee, int numerocolonnearrivee, Pion[][] echiquier)
     {
-        this.positionDepart= new Position(numerolignedepart, numerocolonnedepart);
-        this.positionArrive= new Position(numerolignearrivee, numerocolonnearrivee);
+        this.depart= new Position(numerolignedepart, numerocolonnedepart);
+        this.arrivee= new Position(numerolignearrivee, numerocolonnearrivee);
+        this.echiquier = echiquier;
+    } 
+    
+    public Position obtenirDepart()
+    {
+        return depart;
     }
-    
-    
+
+    public Position obtenirArrivee()
+    {
+        return arrivee;
+    }
 }

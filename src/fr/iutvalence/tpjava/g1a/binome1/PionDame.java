@@ -15,9 +15,14 @@ public class PionDame extends Pion
     }
 
     @Override
-    public boolean deplacementEstValide(Pion[][] echiquier, int ligneDepart,
-            int colonneDepart, int ligneArrivee, int colonneArrivee)
+    public boolean deplacementEstValide(Deplacement deplacement)
     {
         return true;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return "D ";
     }
 }
