@@ -1,5 +1,5 @@
 /* TODO Nom de package. */
-package echecgame;
+package fr.iutvalence.tpjava.g1a.binome1;
 
 /**
  * TODO.

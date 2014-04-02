@@ -1,4 +1,4 @@
-package echecgame;
+package fr.iutvalence.tpjava.g1a.binome1;
 
 import java.util.Scanner;
 

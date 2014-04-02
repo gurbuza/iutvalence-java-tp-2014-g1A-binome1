@@ -1,5 +1,5 @@
 /* TODO Nom de package. */
-package echecgame;
+package fr.iutvalence.tpjava.g1a.binome1;
 
 /**
  * TODO.
@@ -7,9 +7,9 @@ package echecgame;
  * @author TODO
  * @version TODO
  */
-public class PionFou extends Pion
+public class PionRoi extends Pion
 {
-    public PionFou(Couleur couleur) 
+    public PionRoi(Couleur couleur)
     {
         super(couleur);
     }

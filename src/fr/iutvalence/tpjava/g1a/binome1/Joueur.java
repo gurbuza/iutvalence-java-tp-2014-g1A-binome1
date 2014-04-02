@@ -1,5 +1,5 @@
 /* TODO Nom de package incorrect. À discuter en TP. */
-package echecgame;
+package fr.iutvalence.tpjava.g1a.binome1;
 
 /**
  * TODO.
