@@ -13,9 +13,9 @@ public class PionTour extends Pion
     {
         super(couleur);
     }
+    
 
-    @Override
-    public boolean deplacementEstValide(Deplacement deplacement)
+    public boolean deplacementEstValide(Deplacement deplacement, Pion[][] echiquier)
     {
         int ligneDepart = deplacement.obtenirDepart().ligne();
         int colonneDepart = deplacement.obtenirDepart().colonne();
@@ -24,16 +24,19 @@ public class PionTour extends Pion
         
         int diffLigne = Math.abs(ligneDepart-ligneArrivee);
         int diffCol = Math.abs(colonneDepart-colonneArrivee);
-        if ((ligneDepart==ligneArrivee) || (colonneDepart==colonneArrivee))
-            
+        if (((ligneDepart==ligneArrivee) && (colonneDepart!=colonneArrivee)) || ((ligneDepart!=ligneArrivee) && (colonneDepart==colonneArrivee)) && (Math.abs(ligneArrivee-ligneDepart)!=Math.abs(colonneArrivee-colonneDepart)))
+        {
             if (diffLigne!=0)
-                for (int j=0;j<diffLigne-1;j++)
-                {
-                    
-                }
-                    
+                for (int j=1;j<diffLigne-1;j++)
+                    if (echiquier[j][colonneDepart]!=null)
+                        return false;
+            if (diffCol!=0)
+                for (int j=1;j<diffCol-1;j++)
+                    if (echiquier[ligneDepart][j]!=null)
+                        return false;
             return true;
-        
+        }
+                    
         return false;
     }
     

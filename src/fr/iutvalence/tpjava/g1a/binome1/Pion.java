@@ -25,5 +25,5 @@ public abstract class Pion
     }
 
     /** TODO. */
-    public abstract boolean deplacementEstValide(Deplacement deplacement);
+    public abstract boolean deplacementEstValide(Deplacement deplacement, Pion[][] echiquier);
 }

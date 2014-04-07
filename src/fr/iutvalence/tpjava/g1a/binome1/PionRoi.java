@@ -15,7 +15,7 @@ public class PionRoi extends Pion
     }
 
     @Override
-    public boolean deplacementEstValide(Deplacement deplacement)
+    public boolean deplacementEstValide(Deplacement deplacement, Pion[][] echiquier)
     {
         return true;
     }

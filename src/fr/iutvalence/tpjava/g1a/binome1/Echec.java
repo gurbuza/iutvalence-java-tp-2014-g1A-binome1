@@ -74,7 +74,7 @@ public class Echec
         int numerocolonnearrivee = selectionPion.nextInt();
 
         deplacement = new Deplacement(numeroligne, numerocolonne,
-                numerolignearrivee, numerocolonnearrivee, echiquier);
+                numerolignearrivee, numerocolonnearrivee, echiquier.clone());
         return deplacement;
 
     }
@@ -113,7 +113,7 @@ public class Echec
         if (arrivee != null && depart.obtenirCouleur() == arrivee.obtenirCouleur())
             return false;
         
-        return depart.deplacementEstValide(deplacement);
+        return depart.deplacementEstValide(deplacement, echiquier.clone());
 
     }
     
@@ -123,6 +123,7 @@ public class Echec
         int colonneDepart = deplacement.obtenirDepart().colonne();
         int ligneArrivee = deplacement.obtenirArrivee().ligne();
         int colonneArrivee = deplacement.obtenirArrivee().colonne();
+        echiquier[ligneArrivee][colonneArrivee]=null;
         echiquier[ligneArrivee][colonneArrivee]=echiquier[ligneDepart][colonneDepart];
         echiquier[ligneDepart][colonneDepart]=null;
         afficherEchiquier();

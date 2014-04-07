@@ -15,7 +15,7 @@ public class PionCavalier extends Pion
     }
 
     @Override
-    public boolean deplacementEstValide(Deplacement deplacement)
+    public boolean deplacementEstValide(Deplacement deplacement, Pion[][] echiquier)
     {
        int ligneDepart = deplacement.obtenirDepart().ligne();
        int colonneDepart = deplacement.obtenirDepart().colonne();

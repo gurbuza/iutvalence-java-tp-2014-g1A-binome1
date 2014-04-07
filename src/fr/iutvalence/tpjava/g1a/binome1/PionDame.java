@@ -15,9 +15,16 @@ public class PionDame extends Pion
     }
 
     @Override
-    public boolean deplacementEstValide(Deplacement deplacement)
+    public boolean deplacementEstValide(Deplacement deplacement, Pion[][] echiquier)
     {
-        return true;
+        int ligneDepart = deplacement.obtenirDepart().ligne();
+        int colonneDepart = deplacement.obtenirDepart().colonne();
+        int ligneArrivee = deplacement.obtenirArrivee().ligne();
+        int colonneArrivee = deplacement.obtenirArrivee().colonne();
+        
+        if (((ligneDepart==ligneArrivee) && (colonneDepart!=colonneArrivee)) || ((ligneDepart!=ligneArrivee) && (colonneDepart==colonneArrivee)) && (Math.abs(ligneArrivee-ligneDepart)!=Math.abs(colonneArrivee-colonneDepart)) || (Math.abs(ligneArrivee-ligneDepart)==Math.abs(colonneArrivee-colonneDepart)))
+            return true;
+        return false;
     }
     
     @Override
