@@ -11,19 +11,19 @@ import java.util.Scanner;
  */
 public class Echec
 {
-    /** TODO. */
+    /** l'échicquier est un tableau de pion */
     private final Pion[][] echiquier;
 
-    /** TODO. */
+    /** 1er joueur */
     private final Joueur joueur1;
 
-    /** TODO. */
+    /** 2eme joueur */
     private final Joueur joueur2;
 
-    /** TODO. */
+    /** le joueur qui joue */
     private Joueur joueurCourant;
 
-    /** TODO. */
+    /** constructeur de l'application */
     public Echec()
     {
         echiquier = new Pion[8][8];
@@ -59,12 +59,9 @@ public class Echec
 
     public Deplacement obtenirDeplacement()
     {
-        Deplacement deplacement;
-        /* TODO Vous n'avez pas besoin de deux lecteurs sur l'entrée standard ! */
+        Deplacement deplacement; 
         Scanner selectionPion = new Scanner(System.in);
-        Scanner positionArrivee = new Scanner(System.in);
 
-        /* TODO Vous faites deux demandes pour 4 coordonnées ? */
         System.out.println("Veuillez selectionner votre pion :");
         int numeroligne = selectionPion.nextInt();
         int numerocolonne = selectionPion.nextInt();
@@ -91,7 +88,7 @@ public class Echec
                 int colonneDepart = deplacement.obtenirDepart().colonne();
                 if (this.joueurCourant.obtenirCouleur()==this.echiquier[ligneDepart][colonneDepart].obtenirCouleur())
                     {
-                        System.out.println("yolo !");
+                        System.out.println("Changement de joueur!");
                         break;
                     }
             }

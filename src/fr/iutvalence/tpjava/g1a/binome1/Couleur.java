@@ -2,7 +2,7 @@
 package fr.iutvalence.tpjava.g1a.binome1;
 
 /**
- * TODO
+ * Enumération des 2 différents couleurs dans le jeu d'échec
  *
  * @author TODO
  * @version TODO
