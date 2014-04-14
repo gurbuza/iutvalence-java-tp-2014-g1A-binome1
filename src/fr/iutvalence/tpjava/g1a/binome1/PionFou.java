@@ -7,6 +7,7 @@ package fr.iutvalence.tpjava.g1a.binome1;
  * @author TODO
  * @version TODO
  */
+/** Le pion Fou herite des caracteristique de la classe Pion  */
 public class PionFou extends Pion
 {
     public PionFou(Couleur couleur)
@@ -15,6 +16,9 @@ public class PionFou extends Pion
 
     }
 
+    /** calcule qui permet au pion Fou de se deplacer en diagonal,
+     * tout en fessant attention aux pions alliers ou adverse.
+     */
     @Override
     public boolean deplacementEstValide(Deplacement deplacement,
             Pion[][] echiquier)
@@ -44,6 +48,7 @@ public class PionFou extends Pion
 
     }
 
+    /** Le pion Fou est modeliser avec la lettre "F" sur l'echiquier  */
     @Override
     public String toString()
     {

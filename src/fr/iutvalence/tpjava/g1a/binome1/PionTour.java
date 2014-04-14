@@ -7,6 +7,7 @@ package fr.iutvalence.tpjava.g1a.binome1;
  * @author TODO
  * @version TODO
  */
+/** Le pion Tour herite des caracteristique de la classe Pion  */
 public class PionTour extends Pion
 {
     public PionTour(Couleur couleur)
@@ -14,7 +15,8 @@ public class PionTour extends Pion
         super(couleur);
     }
     
-
+    /** calcule qui permet au pion Tour de se deplacer en ligne droite tout en 
+     * fessant attention a la presence d'opstacle. */
     public boolean deplacementEstValide(Deplacement deplacement, Pion[][] echiquier)
     {
         int ligneDepart = deplacement.obtenirDepart().ligne();
@@ -40,6 +42,7 @@ public class PionTour extends Pion
         return false;
     }
     
+    /** Le pion Tour est modeliser avec la lettre "T" sur l'echiquier  */
     @Override
     public String toString()
     {

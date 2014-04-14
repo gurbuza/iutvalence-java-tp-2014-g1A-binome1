@@ -1,4 +1,4 @@
-/* TODO Nom de package incorrect. À discuter en TP. */
+
 package fr.iutvalence.tpjava.g1a.binome1;
 
 /**
@@ -9,21 +9,19 @@ package fr.iutvalence.tpjava.g1a.binome1;
  */
 public abstract class Pion
 {
-    /** TODO. */
+    /** Le pion est defini par sa couleur */
     protected final Couleur couleur;
 
-    /** TODO. */
+    /** on defini une couleur au pion */
     public Pion(Couleur couleur)
     {
         this.couleur = couleur;
     }
 
-    /** TODO. */
     public Couleur obtenirCouleur()
     {
         return couleur;
     }
 
-    /** TODO. */
     public abstract boolean deplacementEstValide(Deplacement deplacement, Pion[][] echiquier);
 }

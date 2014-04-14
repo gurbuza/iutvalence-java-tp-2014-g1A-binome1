@@ -1,4 +1,4 @@
-/* TODO Nom de package incorrect. À discuter en TP. */
+
 package fr.iutvalence.tpjava.g1a.binome1;
 
 /**
@@ -9,17 +9,18 @@ package fr.iutvalence.tpjava.g1a.binome1;
  */
 public class Joueur
 {
-    /** TODO. */
+    /** Le joueur est defini par sa couleur */
     private final Couleur couleur;
-    /** TODO. */
+    /** et son nom */
     private final String nom;
 
-    /** TODO. */
+    /** le constructeur du "joueur" */
     public Joueur(Couleur couleur, String nom) {
         this.couleur = couleur;
         this.nom = nom;
     }
-
+    
+    	
     public Couleur obtenirCouleur() {
         return couleur;
     }

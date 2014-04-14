@@ -7,6 +7,7 @@ package fr.iutvalence.tpjava.g1a.binome1;
  * @author TODO
  * @version TODO
  */
+/** Le pion Cavalier herite des caracteristique de la classe Pion  */
 public class PionCavalier extends Pion
 {
     public PionCavalier(Couleur couleur)
@@ -14,6 +15,9 @@ public class PionCavalier extends Pion
         super(couleur);
     }
 
+    /** calcule qui permet au pion Cavalier de se deplacer.
+     * Il n'autorisse que le deplacement en "L" du cavalier sans fair attention 
+     * aux obstacles   */
     @Override
     public boolean deplacementEstValide(Deplacement deplacement, Pion[][] echiquier)
     {
@@ -29,6 +33,7 @@ public class PionCavalier extends Pion
        return false;
     }
 
+    /** Le pion Cavalier est modeliser avec la lettre "C" sur l'echiquier  */
     @Override
     public String toString()
     {

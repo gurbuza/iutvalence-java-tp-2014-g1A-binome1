@@ -1,4 +1,4 @@
-/* TODO Nom de package incorrect. À discuter en TP. */
+
 package fr.iutvalence.tpjava.g1a.binome1;
 
 /**
@@ -9,7 +9,7 @@ package fr.iutvalence.tpjava.g1a.binome1;
  */
 public class Jouer
 {
-    /** TODO. */
+    /** permet le lancement de l'application. */
     public static void main(String[] args)
     {
             Echec partie = new Echec();

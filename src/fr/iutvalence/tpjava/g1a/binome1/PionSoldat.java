@@ -7,6 +7,7 @@ package fr.iutvalence.tpjava.g1a.binome1;
  * @author TODO
  * @version TODO
  */
+/** Le pion Soldat herite des caracteristique de la classe Pion  */
 public class PionSoldat extends Pion
 {
     private boolean dejaDeplace;
@@ -17,6 +18,9 @@ public class PionSoldat extends Pion
         this.dejaDeplace = false;
     }
 
+    /** calcule qui permet au pion Soldat de se deplacer, il n'y a pas la regle pour
+     * manger un pion adverse en diagonal, ni la regle qui empeche le pion de 
+     * manger en colonne.   */
     @Override
     public boolean deplacementEstValide(Deplacement deplacement, Pion[][] echiquier)
     {
@@ -58,6 +62,7 @@ public class PionSoldat extends Pion
         return false;
     }
     
+    /** Le pion Soldat est modeliser avec la lettre "S" sur l'echiquier  */
     @Override
     public String toString()
     {

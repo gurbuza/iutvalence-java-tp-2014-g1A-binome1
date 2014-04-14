@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 public class Echec
 {
-    /** l'échicquier est un tableau de pion */
+    /** l'echicquier est un tableau de pion */
     private final Pion[][] echiquier;
 
     /** 1er joueur */
@@ -23,19 +23,20 @@ public class Echec
     /** le joueur qui joue */
     private Joueur joueurCourant;
 
-    /** constructeur de l'application */
+    /** cree un tableau de pion de 8x8 et cree les 2 joueurs, en asignant a l'un le droit de jouer. */
     public Echec()
     {
         echiquier = new Pion[8][8];
-        /* TODO Passez en paramètre le nom des joueurs. */
+        /** Passez en parametre le nom des joueurs. */
         this.joueur1 = new Joueur(Couleur.BLANC, "Tom");
         this.joueur2 = new Joueur(Couleur.NOIR, "Jerry");
         this.joueurCourant = joueur1;
     }
 
-    /** TODO. */
+
     public void jouer()
     {
+    	/** l'echiquier s'affiche avec la position des pions. */
         this.premierPlacement();
         this.afficherEchiquier();
         
@@ -57,6 +58,7 @@ public class Echec
          */
     }
 
+    /** entree des valeurs: la position de depart/selection et d'arrivee du pion  */
     public Deplacement obtenirDeplacement()
     {
         Deplacement deplacement; 
@@ -75,7 +77,7 @@ public class Echec
         return deplacement;
 
     }
-
+    /** Verifie si le deplacement est posible, si oui le joueur courant change, si non on demande au joueur de reessayer */
     public Deplacement obtenirDeplacementValide() 
     {
         Deplacement deplacement;
@@ -97,7 +99,9 @@ public class Echec
         return deplacement;
 
     }
-
+    
+    /** verifie si le deplacement est valide, qu'il y a bien un pion au joueur courant 
+     * sur la case selectionne et qu'il n'y a pas de pion a lui sur la case d'arrivee */
     public boolean estDeplacementValide(Deplacement deplacement)
     {
      
@@ -114,6 +118,9 @@ public class Echec
 
     }
     
+    /** affiche le deplacement en supprimant la pion de la case de depart 
+     * et en l'affichant a la case d'arrivee, si possible. Par la meme occasion,
+     * le joueur courant change*/
     public void Mvt(Deplacement deplacement, Pion[][] echiquier)
     {
         int ligneDepart = deplacement.obtenirDepart().ligne();
@@ -130,8 +137,7 @@ public class Echec
             this.joueurCourant=joueur1;
     }
 
-    /* TODO À quoi ça sert ? */
-    /** TODO. */
+    /** modelise l'echiquier sous format texte, avec les lignes, colonnes et pions*/
     private void afficherEchiquier()
     {
         String echiquierConsole = "    ";
@@ -154,7 +160,7 @@ public class Echec
         System.out.println(echiquierConsole);
     }
 
-    /** TODO. */
+    /** Position de ebas de tout les pions du jeu, pour les 2 joueurs.*/
     private void premierPlacement()
     {
         /* Placement des pions. */

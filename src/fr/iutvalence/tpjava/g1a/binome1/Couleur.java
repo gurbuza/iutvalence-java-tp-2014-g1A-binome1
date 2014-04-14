@@ -1,8 +1,8 @@
-/* TODO Nom de package incorrect. */
+
 package fr.iutvalence.tpjava.g1a.binome1;
 
 /**
- * Enumération des 2 différents couleurs dans le jeu d'échec
+ * Enumeration des 2 differents couleurs dans le jeu d'echec
  *
  * @author TODO
  * @version TODO
