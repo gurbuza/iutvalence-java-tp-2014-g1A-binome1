@@ -1,4 +1,4 @@
-package fr.iutvalence.tpjava.g1a.binome1;
+ package fr.iutvalence.tpjava.g1a.binome1;
 
 /** Classe qui donne la position de depart et d'arrivee d'un pion*/
 public class Deplacement
