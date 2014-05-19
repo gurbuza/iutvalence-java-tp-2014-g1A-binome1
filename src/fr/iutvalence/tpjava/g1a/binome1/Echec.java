@@ -160,7 +160,7 @@ public class Echec
         System.out.println(echiquierConsole);
     }
 
-    /** Position de ebas de tout les pions du jeu, pour les 2 joueurs.*/
+    /** Position de depart de tout les pions du jeu, pour les 2 joueurs.*/
     private void premierPlacement()
     {
         /* Placement des pions. */
