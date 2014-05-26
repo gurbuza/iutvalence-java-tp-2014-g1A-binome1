@@ -2,23 +2,23 @@ package ihm;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.LayoutManager;
+import java.awt.TextField;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
-import java.awt.Dimension;
+import fr.iutvalence.tpjava.g1a.binome1.EchecGUI;
 
-public class Fenetre extends JFrame
+public class Fenetre extends JFrame implements IHMInterface
 {
+    public JPanel gauche = new JPanel();
+    public JPanel droite = new JPanel();
 
-    public Fenetre()
+    public Fenetre(EchecGUI partie)
     {
         int i, j;
         this.setTitle("Echecs");
@@ -26,8 +26,7 @@ public class Fenetre extends JFrame
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.setSize(1000, 700);
         this.setResizable(false);
-        JPanel gauche = new JPanel();
-        JPanel droite = new JPanel();
+        
 
         gauche.setPreferredSize(new Dimension(700, 700));
 
@@ -42,29 +41,30 @@ public class Fenetre extends JFrame
             {
                 if (j == 1 || j == 8)
                 {
-                    gauche.add(new Bouton("T", i, j));
+                    gauche.add(new Bouton("T", i, j, partie));
                     i++;
-                    gauche.add(new Bouton("F", i, j));
+                    gauche.add(new Bouton("F", i, j, partie));
                     i++;
-                    gauche.add(new Bouton("C", i, j));
+                    gauche.add(new Bouton("C", i, j, partie));
                     i++;
-                    gauche.add(new Bouton("R", i, j));
+                    gauche.add(new Bouton("R", i, j, partie));
                     i++;
-                    gauche.add(new Bouton("D", i, j));
+                    gauche.add(new Bouton("D", i, j, partie));
                     i++;
-                    gauche.add(new Bouton("C", i, j));
+                    gauche.add(new Bouton("C", i, j, partie));
                     i++;
-                    gauche.add(new Bouton("F", i, j));
+                    gauche.add(new Bouton("F", i, j, partie));
                     i++;
-                    gauche.add(new Bouton("T", i, j));
+                    gauche.add(new Bouton("T", i, j, partie));
                     i++;
                 } else if (j == 2 || j == 7)
                 {
-                    gauche.add(new Bouton("S", i, j));
+                    gauche.add(new Bouton("S", i, j,partie));
 
                 } else
-                    gauche.add(new Bouton("", i, j));
+                    gauche.add(new Bouton("", i, j,partie));
             }
+        
 
         this.getContentPane().setLayout(new BorderLayout());
 
@@ -73,4 +73,30 @@ public class Fenetre extends JFrame
 
         this.setVisible(true);
     }
+
+    @Override
+    public void desactivationBouton()
+    {
+        for (int i=0;i<64;i++)
+            gauche.getComponent(i).setEnabled(false);
+        
+    }
+
+    @Override
+    public void ajoutTexte(String text)
+    {
+        droite.add(new TextField(text));
+        
+    }
+
+    @Override
+    public void deplacement()
+    {
+        // TODO Auto-generated method stub
+        
+    }
+
+ 
+
+
 }

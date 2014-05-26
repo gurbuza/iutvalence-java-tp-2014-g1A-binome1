@@ -1,17 +1,7 @@
-
 package fr.iutvalence.tpjava.g1a.binome1;
 
-import ihm.Bouton;
 
-import java.util.Scanner;
-
-/**
- * Classe echec
- * 
- * @author Hoang Thai Binh / Gurbuz Adem
- * @version v0.5
- */
-public class Echec
+public class EchecGUI
 {
     /** l'echicquier est un tableau de pion */
     private final Pion[][] echiquier;
@@ -26,80 +16,14 @@ public class Echec
     private Joueur joueurCourant;
 
     /** cree un tableau de pion de 8x8 et cree les 2 joueurs, en asignant a l'un le droit de jouer. */
-    public Echec()
+    public EchecGUI()
     {
         echiquier = new Pion[8][8];
         /** Passez en parametre le nom des joueurs. */
         this.joueur1 = new Joueur(Couleur.BLANC, "Tom");
         this.joueur2 = new Joueur(Couleur.NOIR, "Jerry");
         this.joueurCourant = joueur1;
-    }
-
-
-    public void jouer()
-    {
-    	/** l'echiquier s'affiche avec la position des pions. */
-        this.premierPlacement();
-        this.afficherEchiquier();
-        
-        
-        while(true)
-        {
-            Deplacement deplacement = this.obtenirDeplacementValide();
-            Mvt(deplacement,echiquier);
-        }
-        
-
-        /*
-         * Algo d'un tour : 
-         * - Afficher l'échiquier. 
-         * - Demander le déplacement à effectuer. 
-         * - Valider le coup (grille + pion). 
-         * - Si valide, jouer le coup. Sinon retour étape 2. 
-         * - Changer le joueur courant.
-         */
-    }
-
-    /** entree des valeurs: la position de depart/selection et d'arrivee du pion  */
-    public Deplacement obtenirDeplacement()
-    {
-        Deplacement deplacement; 
-        //Scanner selectionPion = new Scanner(System.in);
-
-        //System.out.println("Veuillez selectionner votre pion :");
-        //int numeroligne = selectionPion.nextInt();
-        //int numerocolonne = selectionPion.nextInt();
-
-        //System.out.println("Veuillez saisir la position d'arrivée :");
-        //int numerolignearrivee = selectionPion.nextInt();
-        //int numerocolonnearrivee = selectionPion.nextInt();
-
-        deplacement = new Deplacement(Bouton.POSITION.obtenirDepart().ligne(), Bouton.POSITION.obtenirDepart().colonne(),
-                Bouton.POSITION.obtenirArrivee().ligne(), Bouton.POSITION.obtenirArrivee().colonne(), echiquier.clone());
-        return deplacement;
-
-    }
-    /** Verifie si le deplacement est posible, si oui le joueur courant change, si non on demande au joueur de reessayer */
-    public Deplacement obtenirDeplacementValide() 
-    {
-        Deplacement deplacement;
-        while (true)
-        {
-            deplacement = obtenirDeplacement();
-            if (this.estDeplacementValide(deplacement))
-            {
-                int ligneDepart = deplacement.obtenirDepart().ligne();
-                int colonneDepart = deplacement.obtenirDepart().colonne();
-                if (this.joueurCourant.obtenirCouleur()==this.echiquier[ligneDepart][colonneDepart].obtenirCouleur())
-                    {
-                        System.out.println("Changement de joueur!");
-                        break;
-                    }
-            }
-            System.out.println("Veuillez ressayer SVP !");
-        }
-        return deplacement;
-
+        premierPlacement();
     }
     
     /** verifie si le deplacement est valide, qu'il y a bien un pion au joueur courant 
@@ -132,34 +56,10 @@ public class Echec
         echiquier[ligneArrivee][colonneArrivee]=null;
         echiquier[ligneArrivee][colonneArrivee]=echiquier[ligneDepart][colonneDepart];
         echiquier[ligneDepart][colonneDepart]=null;
-        afficherEchiquier();
         if (this.joueurCourant==joueur1)
             this.joueurCourant=joueur2;
         else
             this.joueurCourant=joueur1;
-    }
-
-    /** modelise l'echiquier sous format texte, avec les lignes, colonnes et pions*/
-    public void afficherEchiquier()
-    {
-        String echiquierConsole = "    ";
-        for (int ligne = 0; ligne < 8; ligne++) {
-            echiquierConsole += String.valueOf(ligne);
-            echiquierConsole += ' ';
-        }
-        echiquierConsole += '\n';
-        for (int ligne = 0; ligne < 8; ligne++)
-        {
-            echiquierConsole += ligne + " | ";
-            for (int colonne = 0; colonne < 8; colonne++)
-            {
-               echiquierConsole += (echiquier[ligne][colonne] == null) ? ". " : echiquier[ligne][colonne].toString();
-            }
-            echiquierConsole += "|\n";
-
-        }
-
-        System.out.println(echiquierConsole);
     }
 
     /** Position de depart de tout les pions du jeu, pour les 2 joueurs.*/
@@ -187,5 +87,4 @@ public class Echec
         for (int colonne = 0; colonne < 8; colonne++)
             echiquier[6][colonne] = new PionSoldat(Couleur.NOIR);
     }
-
 }

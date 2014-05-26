@@ -2,25 +2,43 @@ package ihm;
 
 import java.awt.event.ActionListener;
 
-import fr.iutvalence.tpjava.g1a.binome1.Deplacement;
+
 import fr.iutvalence.tpjava.g1a.binome1.Pion;
+import fr.iutvalence.tpjava.g1a.binome1.Position;
 
-public class DeplacementIHM extends Deplacement 
+public class DeplacementIHM
 {
+    public Position depart;
+    public Position arrivee;
 
-    public DeplacementIHM(int numerolignedepart,
-            int numerocolonnedepart, int numerolignearrivee,
-            int numerocolonnearrivee, Pion[][] echiquier)
+
+    public DeplacementIHM(int numeroLigneDepart,int numeroColonneDepart, int numeroLigneArrivee, int numeroColonneArrivee)
     {
-        super(numerolignedepart, numerocolonnedepart, numerolignearrivee,
-                numerocolonnearrivee, echiquier);
-        // TODO Auto-generated constructor stub
+        this.depart = new Position(numeroLigneDepart, numeroColonneDepart);
+        this.arrivee = new Position(numeroLigneArrivee, numeroColonneArrivee);
+
     }
      
-    public Deplacement declencheMouvement()
+    public Position obtenirDepart()
     {
-        
-        
+        return (depart.ligne()==0 && depart.colonne()==0) ? null : this.depart;
     }
+    
+    public Position obtenirArrivee()
+    {
+        return this.arrivee;
+    }
+
+
+    public void setDepart(int x,int y)
+    {
+        this.depart = new Position(x,y);
+    }
+
+    public void setArrivee(int x, int y)
+    {
+        this.arrivee = new Position(x,y);
+    }
+    
 
 }
